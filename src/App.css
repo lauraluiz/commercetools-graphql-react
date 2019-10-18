@@ -1,22 +1,15 @@
 .App {
-  text-align: center;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-
-.App-logo {
-  height: 40vmin;
+.Cart {
+  float: right;
+  padding: 0 100px 50px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.Products {
+  float: left;
+  padding: 0 100px;
 }
