@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# commercetools GraphQL React
 
-## Available Scripts
+## Requirements
+- [NPM](https://www.npmjs.com) installed
+- [Yarn](https://yarnpkg.com/en/) installed
 
-In the project directory, you can run:
+## Commands
 
-### `yarn start`
+Project setup
+```
+yarn install
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Compiles and hot-reloads for development
+```
+yarn start
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Compiles and minifies for production
+```
+yarn build
+```
 
-### `yarn test`
+## How to re-create this project
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is the setup that was used to create and connect this project to commercetools GraphQL API.
 
-### `yarn build`
+### Steps
+Create project
+```
+npx create-react-app commercetools-graphql-react
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Add apollo as dependency
+```
+cd commercetools-graphql-react
+npm install @apollo/react-hooks apollo-client apollo-link-context apollo-link-http apollo-cache-inmemory graphql graphql-tag
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Install commercetools Auth SDK
+```
+yarn add @commercetools/sdk-auth
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create `src/apollo.js` with this code
+```javascript
+import ApolloClient from 'apollo-client';
+import { createHttpLink } from 'apollo-link-http';
+import { setContext } from 'apollo-link-context';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import SdkAuth, { TokenProvider } from '@commercetools/sdk-auth';
 
-### `yarn eject`
+// Create token provider for the commercetools project
+const tokenProvider = new TokenProvider({
+  sdkAuth: new SdkAuth({
+    host: 'https://auth.sphere.io',
+    projectKey: 'graphql-webinar',
+    credentials: {
+      clientId: 'EepIOtr0P2evGfeWCAh48qIs',
+      clientSecret: 'nCmLN6J5bCSx0ZoicI5GpoyibjnUDnHk',
+    },
+    scopes: ['manage_my_orders:graphql-webinar', 'view_products:graphql-webinar'],
+  }),
+  fetchTokenInfo: sdkAuth => sdkAuth.anonymousFlow(),
+});
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+const httpLink = createHttpLink({
+  uri: 'https://api.sphere.io/graphql-webinar/graphql',
+});
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const authLink = setContext((_, { headers = {} }) => tokenProvider.getTokenInfo()
+  .then(tokenInfo => `${tokenInfo.token_type} ${tokenInfo.access_token}`)
+  .then(authorization => ({ headers: { ...headers, authorization } })));
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+export default new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Replace `src/App.js` content with this code
+```javascript
+import React from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
+import apolloClient from './apollo';
+import './App.css';
 
-## Learn More
+function App() {
+  return (
+    <ApolloProvider client={apolloClient}>
+      <div>Your code</div>
+    </ApolloProvider>
+  );
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Now you can create GraphQL queries and mutations to commercetools in any React component.
