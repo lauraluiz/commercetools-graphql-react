@@ -1,5 +1,7 @@
 # commercetools GraphQL React
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8a8d57c4-3429-47cb-b6f0-de30a98f15b8/deploy-status)](https://app.netlify.com/sites/commercetools-graphql-react/deploys)
+
 ## Requirements
 - [NPM](https://www.npmjs.com) installed
 - [Yarn](https://yarnpkg.com/en/) installed
