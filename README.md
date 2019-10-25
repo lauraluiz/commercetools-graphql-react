@@ -6,7 +6,6 @@
 https://commercetools-graphql-react.netlify.com/
 
 ## Requirements
-- [NPM](https://www.npmjs.com) installed
 - [Yarn](https://yarnpkg.com/en/) installed
 
 ## Commands
@@ -31,7 +30,7 @@ yarn build
 This is the setup that was used to create and connect this project to commercetools GraphQL API.
 
 ### Steps
-Create project
+Create project with [npx](https://www.npmjs.com/package/npx)
 ```
 npx create-react-app commercetools-graphql-react
 ```
