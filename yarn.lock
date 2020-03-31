@@ -1738,18 +1738,18 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@commercetools/sdk-auth@3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@commercetools/sdk-auth/-/sdk-auth-3.0.5.tgz#fd9d065036aa0854951abc14d4f2fda651f748d4"
-  integrity sha512-a++BC4dDzEysNP9WNJtCCIZnW36nq/5UKuEX+vg6UH2Zyr5w22rRgbzxT/2pcRzWUw4PJGC9a9dIO8s7WI8ntw==
+"@commercetools/sdk-auth@3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@commercetools/sdk-auth/-/sdk-auth-3.0.6.tgz#11e2f75f15e449bbcc51be090e97fb6dbf81632d"
+  integrity sha512-M7eam5JFC3r3hxxc0WbxcwI8LXZfsApcbwTqbbZM7nWr36dzRYLC+1bbDFIT4gQJozAGsk0Alh+stHtL1MJCwA==
   dependencies:
-    "@commercetools/sdk-middleware-http" "^6.0.5"
+    "@commercetools/sdk-middleware-http" "^6.0.6"
     lodash.defaultsdeep "^4.6.0"
 
-"@commercetools/sdk-middleware-http@^6.0.5":
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/@commercetools/sdk-middleware-http/-/sdk-middleware-http-6.0.5.tgz#f7175d7d78c8a2dfdcc8ca83ca9b9ebb015a0d06"
-  integrity sha512-jkGODxsxL4IP37Eg70i3cQe3tpLaK/wYmrTwm5UorIA1feQ+w6HtEog4eZyDmVTWHNQZS+y/il5yxfP6KPjJbA==
+"@commercetools/sdk-middleware-http@^6.0.6":
+  version "6.0.6"
+  resolved "https://registry.yarnpkg.com/@commercetools/sdk-middleware-http/-/sdk-middleware-http-6.0.6.tgz#4e8fef47734530c2ba488922d7f533c83ebdfa7d"
+  integrity sha512-GrWEtSF4WGsqXTgDcuyIAJ1V7jUTqlnlsTx6Yk+vrgtJXU6zwBewX4/AQoV5Jd3oLRrEpYekGJ59vABTAoOY0Q==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
