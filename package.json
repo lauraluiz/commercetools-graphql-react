@@ -10,7 +10,7 @@
     "apollo-link-context": "1.0.20",
     "apollo-link-http": "1.5.17",
     "graphql": "15.3.0",
-    "graphql-tag": "2.10.3",
+    "graphql-tag": "2.10.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
