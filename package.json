@@ -11,8 +11,8 @@
     "apollo-link-http": "1.5.17",
     "graphql": "15.4.0",
     "graphql-tag": "2.11.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-scripts": "4.0.0"
   },
   "scripts": {
