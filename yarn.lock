@@ -1121,19 +1121,19 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@commercetools/sdk-auth@3.0.12":
-  version "3.0.12"
-  resolved "https://registry.npmjs.org/@commercetools/sdk-auth/-/sdk-auth-3.0.12.tgz"
-  integrity sha512-t7F71oNK+A23hLGzlEYnjTtqhxDUFST8f4l9YAf7mmVCA9Qeu668pDvJ/kf5gVLMQVazEQM8Vjy4JyyeQctEkQ==
+"@commercetools/sdk-auth@3.0.13":
+  version "3.0.13"
+  resolved "https://registry.npmjs.org/@commercetools/sdk-auth/-/sdk-auth-3.0.13.tgz"
+  integrity sha512-Y+E+oYwQeY4PHu4HBBeNyieQsDoG/f7axHlQXDgdnVcLkyPDHsMHYMiOT8p5MAl+VFCA7F31z9y7x/QUmyyT5Q==
   dependencies:
-    "@commercetools/sdk-middleware-http" "^6.0.11"
+    "@commercetools/sdk-middleware-http" "^6.1.1"
     lodash.defaultsdeep "^4.6.0"
     qss "2.0.3"
 
-"@commercetools/sdk-middleware-http@^6.0.11":
-  version "6.0.11"
-  resolved "https://registry.npmjs.org/@commercetools/sdk-middleware-http/-/sdk-middleware-http-6.0.11.tgz"
-  integrity sha512-9Keb5rv6fvdA9qdehBEjk/JMrAzlBbg76TodsvhCZZZteaO0+ybjFgtV0ekdGyI4awxOxgsiPDZrTmQNvnI5Wg==
+"@commercetools/sdk-middleware-http@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.npmjs.org/@commercetools/sdk-middleware-http/-/sdk-middleware-http-6.1.1.tgz"
+  integrity sha512-wycP1vSoD99dtD3NVVQF5VUrfiXIxKIbuYb3sU/+EHmHzgCXIfI4NditL+45Qr7sb6qmUYVFyPWjHfZINBqfUg==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
